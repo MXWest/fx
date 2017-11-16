@@ -24,6 +24,13 @@ jobs:
           command: |
               export PATH="$HOME/bin:$PATH"
               make install-deps && make clean && make build
+
+      - run:
+          name: Test
+          command: |
+              export PATH="$HOME/bin:$PATH"
+              ./build/fx serve &
+              ./build/fx up ./examples/functions/func.js
 deployment:
     production:
     branch: master
